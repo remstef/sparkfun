@@ -38,7 +38,8 @@ public class AppJ8 {
 			System.exit(1);
 		}
 		
-		SparkConf sparkConf = new SparkConf().setAppName("JavaWordCountJ8");
+		SparkConf sparkConf = new SparkConf().setAppName("JavaWordCountJ8").setMaster("local[2]").set("spark.io.compression.codec","org.apache.spark.io.LZ4CompressionCodec");
+		//sparkConf.set("spark.serializer", "org.apache.spark.serializer.KryoSerializer");
 		JavaSparkContext ctx = new JavaSparkContext(sparkConf); // "local[1]","test",
 		JavaRDD<String> lines = ctx.textFile(args[0], 1);
 		 

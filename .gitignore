@@ -11,6 +11,10 @@ local_data
 .settings
 .cache
 
+# intellij related
+.idea
+*.iml
+
 # user defined ignore
 **/*_ignore
 

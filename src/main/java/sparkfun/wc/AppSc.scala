@@ -18,7 +18,7 @@ object AppSc {
 		}
     
 
-		val conf = new SparkConf().setAppName("ScalaWordCount");
+		val conf = new SparkConf().setAppName("ScalaWordCount").setMaster("local[2]").set("spark.io.compression.codec","org.apache.spark.io.LZ4CompressionCodec");
 		val sc = new SparkContext(conf);
 
 		val lines = sc.textFile(args(0));
